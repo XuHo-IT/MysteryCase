@@ -1,0 +1,6 @@
+@MysteryCaseAPI_HostAddress = http://localhost:5086
+
+GET {{MysteryCaseAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
