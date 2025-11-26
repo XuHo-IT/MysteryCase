@@ -16,6 +16,7 @@ namespace MysteryCaseDomain
         public Difficulty DifficultyLevel { get; set; } = Difficulty.Easy;
         public Resolutions ResolutionStatus { get; set; } = Resolutions.Active;
         public ICollection<Clue> Clues { get; set; } = new List<Clue>();
+        public string? ImageUrl { get; set; }
         public Solution? Solution { get; set; }
         public ICollection<UserCaseInteraction> Interactions { get; set; } = new List<UserCaseInteraction>();
     }

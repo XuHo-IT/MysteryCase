@@ -1,33 +1,39 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FastEndpoints;
+using Mapster;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using MysteryCaseApplication.Querries.Cases;
 using MysteryCaseInfrastructure;
+using MysteryCaseShared.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-// Đăng ký DbContext với SQL Server
+MappingConfig.Configure();
+builder.Services.AddMapster();
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<MysteryCaseDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssemblyContaining<GetCaseListQuery>());
+
+builder.Services.AddFastEndpoints();
+
 builder.Services.AddControllers();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
+app.UseFastEndpoints();
 app.MapControllers();
-
 app.Run();

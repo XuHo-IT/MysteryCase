@@ -16,6 +16,7 @@ namespace MysteryCaseDomain
         public string? Location { get; set; }
         public bool IsHidden { get; set; } = true;
         public Cost UnlockCost { get; set; } = Cost.Zero;
+        public string? ImageUrl { get; set; }
         public Case Case { get; set; } = null!;
     }
 }
