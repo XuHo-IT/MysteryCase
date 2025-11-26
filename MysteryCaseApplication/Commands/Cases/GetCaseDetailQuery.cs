@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MysteryCaseApplication.Querries.Cases
+namespace MysteryCaseApplication.Commands.Cases
 {
-    public record GetCaseListQuery : IRequest<List<CaseListDto>>;
+    public record GetCaseDetailQuery(Guid CaseId, Guid UserId) : IRequest<CaseDetailDto>;
 }

@@ -12,7 +12,7 @@ using static MysteryCaseDomain.Constants;
 
 namespace MysteryCaseApplication.Querries.Cases
 {
-    public class GetCaseListHandler : IRequestHandler<GetCaseListQuery, List<CaseListDto>>
+    public class GetCaseListHandler : IRequestHandler<GetCaseListCommand, List<CaseListDto>>
     {
         private readonly MysteryCaseDbContext _context;
 
@@ -21,7 +21,7 @@ namespace MysteryCaseApplication.Querries.Cases
             _context = context;
         }
 
-        public async Task<List<CaseListDto>> Handle(GetCaseListQuery request, CancellationToken cancellationToken)
+        public async Task<List<CaseListDto>> Handle(GetCaseListCommand request, CancellationToken cancellationToken)
         {
             var cases = await _context.Cases
                 .Where(c => c.ResolutionStatus == Resolutions.Active) 

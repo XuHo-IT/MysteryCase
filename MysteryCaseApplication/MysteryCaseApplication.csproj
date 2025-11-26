@@ -13,4 +13,9 @@
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MysteryCaseDomain\MysteryCaseDomain.csproj" />
+    <ProjectReference Include="..\MysteryCaseShared\MysteryCaseShared.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.*">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -21,7 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MysteryCaseApplication\MysteryCaseApplication.csproj" />
     <ProjectReference Include="..\MysteryCaseDomain\MysteryCaseDomain.csproj" />
+    <ProjectReference Include="..\MysteryCaseShared\MysteryCaseShared.csproj" />
   </ItemGroup>
 
 </Project>

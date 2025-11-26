@@ -18,7 +18,7 @@ builder.Services.AddDbContext<MysteryCaseDbContext>(options =>
 
 
 builder.Services.AddMediatR(cfg =>
-    cfg.RegisterServicesFromAssemblyContaining<GetCaseListQuery>());
+    cfg.RegisterServicesFromAssemblyContaining<GetCaseListCommand>());
 
 builder.Services.AddFastEndpoints();
 

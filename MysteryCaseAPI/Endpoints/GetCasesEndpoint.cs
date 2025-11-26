@@ -21,7 +21,7 @@ namespace MysteryCaseAPI.Endpoints
 
         public override async Task HandleAsync(CancellationToken ct)
         {
-            var query = new GetCaseListQuery();
+            var query = new GetCaseListCommand();
             var result = await _mediator.Send(query, ct);
 
             await SendOkAsync(result, ct);
