@@ -8,5 +8,5 @@ using System.Threading.Tasks;
 
 namespace MysteryCaseApplication.Commands.Cases
 {
-    public record GetCaseDetailQuery(Guid CaseId, Guid UserId) : IRequest<CaseDetailDto>;
+    public record GetCaseDetailCommand(Guid CaseId, Guid UserId) : IRequest<CaseDetailDto>;
 }

@@ -3,7 +3,7 @@ using MediatR;
 using MysteryCaseApplication.Querries.Cases;
 using MysteryCaseShared.DTOs;
 
-namespace MysteryCaseAPI.Endpoints
+namespace MysteryCaseAPI.Endpoints.Cases
 {
     public class GetCasesEndpoint : EndpointWithoutRequest<List<CaseListDto>>
     {

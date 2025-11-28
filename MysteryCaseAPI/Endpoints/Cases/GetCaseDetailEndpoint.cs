@@ -5,7 +5,7 @@ using MysteryCaseDomain;
 using MysteryCaseShared.DTOs;
 using System.Security.Claims;
 
-namespace MysteryCaseAPI.Endpoints
+namespace MysteryCaseAPI.Endpoints.Cases
 {
     public class GetCaseDetailEndpoint : EndpointWithoutRequest<CaseDetailDto>
     {
@@ -31,7 +31,7 @@ namespace MysteryCaseAPI.Endpoints
                 return;
             }
 
-            var query = new GetCaseDetailQuery(caseId, userId);
+            var query = new GetCaseDetailCommand(caseId, userId);
             try
             {
                 var result = await _mediator.Send(query, ct);

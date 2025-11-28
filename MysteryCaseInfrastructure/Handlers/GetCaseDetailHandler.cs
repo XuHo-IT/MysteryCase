@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace MysteryCaseInfrastructure.Handlers
 {
-    public class GetCaseDetailHandler : IRequestHandler<GetCaseDetailQuery, CaseDetailDto>
+    public class GetCaseDetailHandler : IRequestHandler<GetCaseDetailCommand, CaseDetailDto>
     {
         private readonly MysteryCaseDbContext _context;
 
         public GetCaseDetailHandler(MysteryCaseDbContext context) => _context = context;
 
-        public async Task<CaseDetailDto> Handle(GetCaseDetailQuery request, CancellationToken ct)
+        public async Task<CaseDetailDto> Handle(GetCaseDetailCommand request, CancellationToken ct)
         {
             var @case = await _context.Cases
                 .Include(c => c.Clues) 
